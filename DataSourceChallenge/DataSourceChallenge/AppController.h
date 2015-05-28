@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
-@interface AppController : NSObject
+@interface AppController : NSObject {
+    NSMutableArray *_items;
+}
+
+@property (weak) IBOutlet NSTextField *addItemField;
+@property (weak) IBOutlet NSTableView *tableView;
+
+- (IBAction)addItem:(id)sender;
 
 @end

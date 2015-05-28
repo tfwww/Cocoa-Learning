@@ -688,6 +688,9 @@
                         <buttonCell key="cell" type="push" title="Add" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ybu-m0-dBi">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
+                            <connections>
+                                <action selector="addItem:" target="Cjx-tZ-Txn" id="nbE-bw-IM3"/>
+                            </connections>
                         </buttonCell>
                     </button>
                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YJ-hq-cas">
@@ -717,6 +720,10 @@
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
                                     </tableColumns>
+                                    <connections>
+                                        <outlet property="dataSource" destination="Cjx-tZ-Txn" id="5mv-vV-EMm"/>
+                                        <outlet property="delegate" destination="Cjx-tZ-Txn" id="iaU-wz-4up"/>
+                                    </connections>
                                 </tableView>
                             </subviews>
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -737,5 +744,11 @@
                 </subviews>
             </view>
         </window>
+        <customObject id="Cjx-tZ-Txn" customClass="AppController">
+            <connections>
+                <outlet property="addItemField" destination="mGV-Um-9hv" id="kym-5E-veq"/>
+                <outlet property="tableView" destination="3WN-7O-4Aw" id="7V9-Yd-NGS"/>
+            </connections>
+        </customObject>
     </objects>
 </document>
