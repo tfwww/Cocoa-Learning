@@ -21,6 +21,7 @@
 - (IBAction)addItem:(id)sender {
     
     NSString *item = [self.addItemField stringValue];
+    [self.addItemField setStringValue:@""];
     [_items addObject:item];
     [self.tableView reloadData];
 }
