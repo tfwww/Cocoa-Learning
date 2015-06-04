@@ -1,8 +1,8 @@
 //
 //  Person.m
-//  RaiseMan
+//  RaiseManChallenge
 //
-//  Created by Wunmin on 15/6/3.
+//  Created by Wunmin on 15/6/4.
 //  Copyright (c) 2015年 Wunmin Chung. All rights reserved.
 //
 
@@ -30,5 +30,6 @@
         [super setNilValueForKey:key];
     }
 }
+
 
 @end

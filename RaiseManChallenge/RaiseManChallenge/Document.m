@@ -1,13 +1,12 @@
 //
 //  Document.m
-//  RaiseMan
+//  RaiseManChallenge
 //
-//  Created by Wunmin on 15/6/3.
+//  Created by Wunmin on 15/6/4.
 //  Copyright (c) 2015年 Wunmin Chung. All rights reserved.
 //
 
 #import "Document.h"
-#import "Person.h"
 
 @interface Document ()
 
@@ -22,14 +21,6 @@
         employees = [[NSMutableArray alloc] init];
     }
     return self;
-}
-
-- (void)setEmployees:(NSMutableArray *)a {
-    if (a == employees)
-        return;
-        
-        employees = a;
-    
 }
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController {
@@ -61,5 +52,52 @@
     [NSException raise:@"UnimplementedMethod" format:@"%@ is unimplemented", NSStringFromSelector(_cmd)];
     return YES;
 }
+
+#pragma mark Action methods
+
+- (IBAction)createEmployee:(id)sender {
+    Person *newEmployee = [[Person alloc] init];
+    [employees addObject:newEmployee];
+    [tableView reloadData];
+    
+}
+
+- (IBAction)delectSelectedEmployees:(id)sender {
+    NSIndexSet *rows = [tableView selectedRowIndexes];
+    
+    if ([rows count] == 0) {
+        NSBeep();
+        return;
+    }
+    [employees removeObjectsAtIndexes:rows];
+    [tableView reloadData];
+}
+
+#pragma mark Table view dataSource methods
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView {
+    return [employees count];
+}
+
+- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
+    NSString *identifier = [aTableColumn identifier];
+    
+    Person *person = [employees objectAtIndex:rowIndex];
+    return [person valueForKey:identifier];
+    
+}
+
+- (void)tableView:(NSTableView *)aTableView setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
+    NSString *identifier = [aTableColumn identifier];
+    Person *person = [employees objectAtIndex:rowIndex];
+    [person setValue:anObject forKey:identifier];
+}
+
+- (void)tableView:(NSTableView *)theTableView sortDescriptorsDidChange:(NSArray *)oldDescriptors
+{
+    [employees sortUsingDescriptors:[tableView sortDescriptors]];
+    [tableView reloadData];
+}
+
 
 @end

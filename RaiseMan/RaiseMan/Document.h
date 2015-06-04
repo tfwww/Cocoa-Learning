@@ -7,8 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+@class Person;
 
-@interface Document : NSDocument
+@interface Document : NSDocument {
+    
+    NSMutableArray *employees;
+}
+
+- (void)setEmployees:(NSMutableArray *)a;
+
 
 
 @end

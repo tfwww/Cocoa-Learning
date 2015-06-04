@@ -84,10 +84,9 @@
 		A5F0D48A1B1E77FE0005898D /* RaiseMan */ = {
 			isa = PBXGroup;
 			children = (
+				A5F0D4B41B1E7A330005898D /* Model */,
 				A5F0D48D1B1E77FE0005898D /* AppDelegate.h */,
 				A5F0D48E1B1E77FE0005898D /* AppDelegate.m */,
-				A5F0D4B11B1E78920005898D /* Person.h */,
-				A5F0D4B21B1E78920005898D /* Person.m */,
 				A5F0D4921B1E77FE0005898D /* Document.h */,
 				A5F0D4931B1E77FE0005898D /* Document.m */,
 				A5F0D4951B1E77FE0005898D /* Document.xib */,
@@ -122,6 +121,15 @@
 				A5F0D4A61B1E77FE0005898D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A5F0D4B41B1E7A330005898D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A5F0D4B11B1E78920005898D /* Person.h */,
+				A5F0D4B21B1E78920005898D /* Person.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
