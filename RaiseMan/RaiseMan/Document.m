@@ -67,6 +67,34 @@ static void *RMDocumentKVOContext;
     [employees removeObjectAtIndex:index];
 }
 
+- (IBAction)createEmployee:(id)sender {
+    
+    NSWindow *w = [tableView window];
+    
+    // Try to end editing that is taking place
+    BOOL editingEnded = [w makeFirstResponder:w];
+    if (!editingEnded) {
+        NSLog(@"Unable to end editing");
+        return;
+    }
+    NSUndoManager *undo = [self undoManager];
+    if ([undo groupingLevel] > 0) {
+        [undo endUndoGrouping];
+        [undo beginUndoGrouping];
+    }
+    
+    Person *p = [employeeController newObject];
+    [employeeController addObject:p];
+    [employeeController rearrangeObjects];
+    NSArray *a = [employeeController arrangedObjects];
+    
+    NSUInteger row = [a indexOfObjectIdenticalTo:p];
+    NSLog(@"starting edit of %@ in row %lu", p, row);
+    
+    [tableView editColumn:0 row:row withEvent:nil select:YES];
+    
+}
+
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController {
     [super windowControllerDidLoadNib:aController];
     // Add any code here that needs to be executed once the windowController has loaded the document's window.
