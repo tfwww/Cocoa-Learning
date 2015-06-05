@@ -15,6 +15,8 @@
 
 @implementation Document
 
+static void *RMDocumentKVOContext;
+
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -25,11 +27,15 @@
 }
 
 - (void)setEmployees:(NSMutableArray *)a {
-    if (a == employees)
-        return;
-        
+    
+    for (Person *person in employees) {
+        [self stopObservingPerson:person];
+    }
         employees = a;
     
+    for (Person *person in employees) {
+        [self startObservingPerson:person];
+    }
 }
 
 - (void)insertObject:(Person *)p inEmployeesAtIndex:(NSUInteger)index {
@@ -42,7 +48,9 @@
     }
     
     // Add the person to the array
+    [self startObservingPerson:p];
     [employees insertObject:p atIndex:index];
+    
 }
 
 - (void)removeObjectFromEmployeesAtIndex:(NSUInteger)index {
@@ -55,12 +63,49 @@
     if (![undo isUndoing]) {
         [undo setActionName:@"Remove Person"];
     }
+    [self stopObservingPerson:p];
     [employees removeObjectAtIndex:index];
 }
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController {
     [super windowControllerDidLoadNib:aController];
     // Add any code here that needs to be executed once the windowController has loaded the document's window.
+}
+
+- (void)startObservingPerson:(Person *)person {
+    
+    [person addObserver:self forKeyPath:@"personName" options:NSKeyValueObservingOptionOld context:&RMDocumentKVOContext];
+    [person addObserver:self forKeyPath:@"expectedRaise" options:NSKeyValueObservingOptionOld context:&RMDocumentKVOContext];
+}
+
+- (void)stopObservingPerson:(Person *)person {
+    
+    [person removeObserver:self forKeyPath:@"personName" context:&RMDocumentKVOContext];
+    [person removeObserver:self forKeyPath:@"expectedRaise" context:&RMDocumentKVOContext];
+}
+
+- (void)changeKeyPath:(NSString *)keyPath ofObject:(id)obj toValue:(id)newValue {
+    
+    [obj setValue:newValue forKeyPath:keyPath];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+
+    if (context != &RMDocumentKVOContext) {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+        return;
+    }
+    
+    NSUndoManager *undo = [self undoManager];
+    id oldValue = [change objectForKey:NSKeyValueChangeOldKey];
+    
+    if (oldValue == [NSNull null]) {
+        oldValue = nil;
+    }
+    NSLog(@"oldValue = %@", oldValue);
+    
+    [[undo prepareWithInvocationTarget:self] changeKeyPath:keyPath ofObject:object toValue:oldValue];
+    
 }
 
 + (BOOL)autosavesInPlace {
