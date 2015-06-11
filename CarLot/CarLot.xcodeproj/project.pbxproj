@@ -15,6 +15,7 @@
 		A5DDFD381B2909E300A8A6C5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5DDFD371B2909E300A8A6C5 /* Images.xcassets */; };
 		A5DDFD3B1B2909E300A8A6C5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5DDFD391B2909E300A8A6C5 /* MainMenu.xib */; };
 		A5DDFD471B2909E300A8A6C5 /* CarLotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5DDFD461B2909E300A8A6C5 /* CarLotTests.m */; };
+		A5E958171B2A56670058BB66 /* CarArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E958161B2A56670058BB66 /* CarArrayController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		A5DDFD401B2909E300A8A6C5 /* CarLotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarLotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5DDFD451B2909E300A8A6C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5DDFD461B2909E300A8A6C5 /* CarLotTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarLotTests.m; sourceTree = "<group>"; };
+		A5E958151B2A56670058BB66 /* CarArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarArrayController.h; sourceTree = "<group>"; };
+		A5E958161B2A56670058BB66 /* CarArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarArrayController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 			children = (
 				A5DDFD291B2909E300A8A6C5 /* AppDelegate.h */,
 				A5DDFD2A1B2909E300A8A6C5 /* AppDelegate.m */,
+				A5E958151B2A56670058BB66 /* CarArrayController.h */,
+				A5E958161B2A56670058BB66 /* CarArrayController.m */,
 				A5DDFD2E1B2909E300A8A6C5 /* Document.h */,
 				A5DDFD2F1B2909E300A8A6C5 /* Document.m */,
 				A5DDFD311B2909E300A8A6C5 /* Document.xib */,
@@ -223,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5DDFD361B2909E300A8A6C5 /* Document.xcdatamodeld in Sources */,
+				A5E958171B2A56670058BB66 /* CarArrayController.m in Sources */,
 				A5DDFD301B2909E300A8A6C5 /* Document.m in Sources */,
 				A5DDFD2D1B2909E300A8A6C5 /* main.m in Sources */,
 				A5DDFD2B1B2909E300A8A6C5 /* AppDelegate.m in Sources */,
@@ -423,6 +429,7 @@
 				A5DDFD4C1B2909E300A8A6C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A5DDFD4D1B2909E300A8A6C5 /* Build configuration list for PBXNativeTarget "CarLotTests" */ = {
 			isa = XCConfigurationList;
@@ -431,6 +438,7 @@
 				A5DDFD4F1B2909E300A8A6C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
