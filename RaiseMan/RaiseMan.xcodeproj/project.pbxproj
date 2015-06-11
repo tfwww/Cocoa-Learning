@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5EEFA621B290422000B689C /* txt.icns in Resources */ = {isa = PBXBuildFile; fileRef = A5EEFA611B290422000B689C /* txt.icns */; };
 		A5F0D48F1B1E77FE0005898D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F0D48E1B1E77FE0005898D /* AppDelegate.m */; };
 		A5F0D4911B1E77FE0005898D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F0D4901B1E77FE0005898D /* main.m */; };
 		A5F0D4941B1E77FE0005898D /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = A5F0D4931B1E77FE0005898D /* Document.m */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A5EEFA611B290422000B689C /* txt.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = txt.icns; sourceTree = "<group>"; };
 		A5F0D4881B1E77FE0005898D /* RaiseMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaiseMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5F0D48C1B1E77FE0005898D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5F0D48D1B1E77FE0005898D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 		A5F0D48B1B1E77FE0005898D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A5EEFA611B290422000B689C /* txt.icns */,
 				A5F0D48C1B1E77FE0005898D /* Info.plist */,
 				A5F0D4901B1E77FE0005898D /* main.m */,
 			);
@@ -215,6 +218,7 @@
 				A5F0D4971B1E77FE0005898D /* Document.xib in Resources */,
 				A5F0D4991B1E77FE0005898D /* Images.xcassets in Resources */,
 				A5F0D49C1B1E77FE0005898D /* MainMenu.xib in Resources */,
+				A5EEFA621B290422000B689C /* txt.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +437,7 @@
 				A5F0D4AD1B1E77FE0005898D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A5F0D4AE1B1E77FE0005898D /* Build configuration list for PBXNativeTarget "RaiseManTests" */ = {
 			isa = XCConfigurationList;
@@ -441,6 +446,7 @@
 				A5F0D4B01B1E77FE0005898D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
