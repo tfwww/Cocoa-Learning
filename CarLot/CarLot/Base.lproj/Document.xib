@@ -147,6 +147,10 @@
                                             </prototypeCellViews>
                                         </tableColumn>
                                     </tableColumns>
+                                    <connections>
+                                        <binding destination="kBj-1m-vee" name="content" keyPath="arrangedObjects" id="V6Y-va-Y9V"/>
+                                        <binding destination="kBj-1m-vee" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="V6Y-va-Y9V" id="6Tv-IO-QL7"/>
+                                    </connections>
                                 </tableView>
                             </subviews>
                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -245,7 +249,7 @@
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <connections>
-                            <binding destination="kBj-1m-vee" name="displayPatternTitle1" keyPath="selection" id="SKe-Ay-hoQ">
+                            <binding destination="kBj-1m-vee" name="displayPatternTitle1" keyPath="selection.makeModel" id="f3s-3k-BQT">
                                 <dictionary key="options">
                                     <string key="NSDisplayPattern">Details for %{title1}@</string>
                                     <string key="NSNoSelectionPlaceholder">&lt;no selection&gt;</string>
@@ -261,7 +265,7 @@
             </connections>
             <point key="canvasLocation" x="565.5" y="390"/>
         </window>
-        <arrayController mode="entity" entityName="Car" automaticallyPreparesContent="YES" id="kBj-1m-vee" userLabel="Cars">
+        <arrayController mode="entity" entityName="Car" automaticallyPreparesContent="YES" id="kBj-1m-vee" userLabel="Cars" customClass="CarArrayController">
             <connections>
                 <binding destination="-2" name="managedObjectContext" keyPath="managedObjectContext" id="snZ-0f-amJ"/>
             </connections>
